@@ -1,0 +1,160 @@
+﻿@model IEnumerable<ProjectTracker.Models.DB.TimeSheet>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.taskType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reportDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fromTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.toTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resourceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resourceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.submittedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvalRemark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CRNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supportTicketId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isApproved)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reportDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fromTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resourceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resourceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.submittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvalRemark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supportTicketId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isApproved)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

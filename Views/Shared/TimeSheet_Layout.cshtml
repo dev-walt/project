@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/Scripts/modernizr-2.8.3.js" rel="stylesheet">
+</head>
+<body style=" background-color:aliceblue">
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color:palegoldenrod;">
+        <img src="~/Content/Images/dlplLogo.svg" style="height:50px;width:200px;margin-top:0px;margin-bottom:0">
+        <div>
+
+            <img src="~/Content/Images/profilepic.svg" style="height: 50px; width: 100px; margin-top: 0px; float: right; margin-bottom:0">
+
+
+            <a href="/UserLogin/Logout"><h6 style=" margin-top:15px;float:right">Hi @Session["Username"] !</h6></a>
+
+
+
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-gradient" style="background-color:lavenderblush">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top:-10px;margin-bottom:-10px;margin-left:10px">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/UserTimeSheet/Add"><i class="fa fa-dashboard fa-fw"></i> AddTimeSheet</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View Project</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View User TimeSheet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Allow User TimeSheet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Approve User TimeSheet</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+@*
+    <div id="page-wrapper">
+        <div class="row">*@
+
+ 
+@*            <script>
+                $(document).ready(function () {
+                    toastr.options.onCloseClick = function () { alert("welcome"); };
+                    // Proxy created on the fly
+                    var hub = $.connection.mynotificationHub;
+
+                    // Declare a function on the hub hub so the server can invoke it
+                    hub.client.displayStatus = function () {
+                        getData();
+                    };
+
+                    // Start the connection
+                    $.connection.hub.start();
+                    getData();
+
+                    function getData() {
+                        var divNotificaion = $('#divNotificaion');
+                        $.ajax({
+                            url: '/Notification/GetNotification',
+                            type: 'GET',
+                            datatype: 'json',
+                            success: function (data) {
+                                data = $.parseJSON(data);
+                                if (data.length > 0) {
+
+                                    toastr.options =
+                                    {
+                                        "closeButton": true,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toast-top-center",
+                                        "preventDuplicates": false,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": 0,
+                                        "extendedTimeOut": 0,
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut",
+                                        "tapToDismiss": false
+                                    }
+                                    for (var i = 0; i < data.length; i++) {
+                                        toastr.error(data[i].Message, "Message");
+                                    }
+                                }
+                            }, error: function (r, e, w) {
+
+                            }
+                        });
+
+
+                    }
+                })</script>
+
+
+        </div>
+    </div>*@
+    <div class="container body-content">
+        <script src="~/Scripts/jquery-3.6.0.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.13.1.js"></script>
+        @RenderBody()
+        <hr style="position:sticky"/>
+        <footer style="position:fixed">
+            <p>&copy; @DateTime.Now.Year -  DLPL</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

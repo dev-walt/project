@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProjectTracker.Models.DB.projectRemark>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Remarks", "ManageProject", FormMethod.Post))
+{
+    @Html.TextBox("Remark")
+    <input type="submit" value="Add" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdTimeStamp)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.remark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdTimeStamp)
+            </td>
+
+        </tr>
+    }
+
+</table>

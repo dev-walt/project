@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ProjectTracker.Models.DB.projectMaster>
+
+@{
+    ViewBag.Title = "AddProject";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.projectId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CRNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FPR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expectedDelDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdTimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedTimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expectedDelDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdTimeStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedTimeStamp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

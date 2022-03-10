@@ -1,0 +1,43 @@
+﻿body {
+    margin:0;
+    padding:0;
+    background-color:aliceblue;
+    text-align:center;
+    
+}
+section{
+
+}
+
+td.fields {
+    border: 1px solid black;
+}
+
+td.fieldsValue {
+    border: 1px solid black;
+}
+
+table.fieldstable {
+    background-color: lightsteelblue;
+    border: 2px solid black;
+    text-align: center;
+    margin-left:60px;
+    padding:5px;
+
+}
+
+td.menubarItems {
+    
+    text-decoration:none;
+}
+.menubar{
+    
+}
+
+.logobar{
+
+}
+
+approveSelectedBtn{
+    
+}

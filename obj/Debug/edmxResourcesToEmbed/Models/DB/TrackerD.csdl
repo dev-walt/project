@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectTrackerV2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="approverResourceMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="resourceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="resourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="approverId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="approvarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="userMaster" Relationship="Self.FK_approverResourceMapping_userMaster" FromRole="approverResourceMapping" ToRole="userMaster" />
+    <NavigationProperty Name="userMaster1" Relationship="Self.FK_approverResourceMapping_userMaster1" FromRole="approverResourceMapping" ToRole="userMaster" />
+    <NavigationProperty Name="approverResourceMapping1" Relationship="ProjectTrackerV2Model.FK_approverResourceMapping_approverResourceMapping" FromRole="approverResourceMapping" ToRole="approverResourceMapping1" />
+    <NavigationProperty Name="approverResourceMapping2" Relationship="ProjectTrackerV2Model.FK_approverResourceMapping_approverResourceMapping" FromRole="approverResourceMapping1" ToRole="approverResourceMapping" />
+    <NavigationProperty Name="userMaster2" Relationship="ProjectTrackerV2Model.FK_approverResourceMapping_userMaster2" FromRole="approverResourceMapping" ToRole="userMaster" />
+  </EntityType>
+  <EntityType Name="expDelDate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="actualDate" Type="DateTime" Precision="0" />
+    <Property Name="expectedDate" Type="DateTime" Precision="0" />
+    <Property Name="lastExpectedDate" Type="DateTime" Precision="0" />
+    <Property Name="reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="projectMaster" Relationship="Self.FK_expDelDate_projectMaster" FromRole="expDelDate" ToRole="projectMaster" />
+  </EntityType>
+  <EntityType Name="projectMaster">
+    <Key>
+      <PropertyRef Name="projectId" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CRNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="projectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="projectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FPR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="team" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="expectedDelDate" Type="DateTime" Precision="0" />
+    <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="expDelDates" Relationship="Self.FK_expDelDate_projectMaster" FromRole="projectMaster" ToRole="expDelDate" />
+    <NavigationProperty Name="projectRemarks" Relationship="Self.FK_projectRemarks_projectMaster" FromRole="projectMaster" ToRole="projectRemarks" />
+    <NavigationProperty Name="TimeSheets" Relationship="Self.FK_TimeSheet_projectMaster" FromRole="projectMaster" ToRole="TimeSheet" />
+  </EntityType>
+  <EntityType Name="projectRemark">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="projectMaster" Relationship="Self.FK_projectRemarks_projectMaster" FromRole="projectRemarks" ToRole="projectMaster" />
+  </EntityType>
+  <EntityType Name="roleMaster">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <NavigationProperty Name="userRoleMappings" Relationship="Self.FK_userRoleMapping_roleMaster" FromRole="roleMaster" ToRole="userRoleMapping" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TimeSheet">
+    <Key>
+      <PropertyRef Name="TimeSheetId" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="taskType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="projectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="reportDate" Type="DateTime" Precision="0" />
+    <Property Name="fromTime" Type="Time" Precision="7" />
+    <Property Name="toTime" Type="Time" Precision="7" />
+    <Property Name="hours" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="remarks" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="projectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="resourceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="submittedOn" Type="DateTime" Precision="3" />
+    <Property Name="approvedOn" Type="DateTime" Precision="3" />
+    <Property Name="approvedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="approvalRemark" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="subCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CRNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="supportTicketId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="projectMaster" Relationship="Self.FK_TimeSheet_projectMaster" FromRole="TimeSheet" ToRole="projectMaster" />
+    <Property Name="TimeSheetId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isApproved" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="userMaster">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="emailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vendorId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="approverResourceMappings" Relationship="Self.FK_approverResourceMapping_userMaster" FromRole="userMaster" ToRole="approverResourceMapping" />
+    <NavigationProperty Name="approverResourceMappings1" Relationship="Self.FK_approverResourceMapping_userMaster1" FromRole="userMaster" ToRole="approverResourceMapping" />
+    <NavigationProperty Name="vendorMaster" Relationship="Self.FK_userMaster_vendorMaster" FromRole="userMaster" ToRole="vendorMaster" />
+    <NavigationProperty Name="userRoleMappings" Relationship="Self.FK_userRoleMapping_userMaster" FromRole="userMaster" ToRole="userRoleMapping" />
+    <NavigationProperty Name="approverResourceMappings2" Relationship="ProjectTrackerV2Model.FK_approverResourceMapping_userMaster2" FromRole="userMaster" ToRole="approverResourceMapping" />
+  </EntityType>
+  <EntityType Name="userRoleMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="roleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <NavigationProperty Name="roleMaster" Relationship="Self.FK_userRoleMapping_roleMaster" FromRole="userRoleMapping" ToRole="roleMaster" />
+    <NavigationProperty Name="userMaster" Relationship="Self.FK_userRoleMapping_userMaster" FromRole="userRoleMapping" ToRole="userMaster" />
+  </EntityType>
+  <EntityType Name="vendorMaster">
+    <Key>
+      <PropertyRef Name="vendorId" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vendorId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="userMasters" Relationship="Self.FK_userMaster_vendorMaster" FromRole="vendorMaster" ToRole="userMaster" />
+  </EntityType>
+  <Association Name="FK_approverResourceMapping_userMaster">
+    <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
+    <End Role="approverResourceMapping" Type="Self.approverResourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userMaster">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="approverResourceMapping">
+        <PropertyRef Name="approvarName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_approverResourceMapping_userMaster1">
+    <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
+    <End Role="approverResourceMapping" Type="Self.approverResourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userMaster">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="approverResourceMapping">
+        <PropertyRef Name="resourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_expDelDate_projectMaster">
+    <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
+    <End Role="expDelDate" Type="Self.expDelDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projectMaster">
+        <PropertyRef Name="projectId" />
+      </Principal>
+      <Dependent Role="expDelDate">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRemarks_projectMaster">
+    <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
+    <End Role="projectRemarks" Type="Self.projectRemark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projectMaster">
+        <PropertyRef Name="projectId" />
+      </Principal>
+      <Dependent Role="projectRemarks">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeSheet_projectMaster">
+    <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
+    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projectMaster">
+        <PropertyRef Name="projectId" />
+      </Principal>
+      <Dependent Role="TimeSheet">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userRoleMapping_roleMaster">
+    <End Role="roleMaster" Type="Self.roleMaster" Multiplicity="0..1" />
+    <End Role="userRoleMapping" Type="Self.userRoleMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roleMaster">
+        <PropertyRef Name="roleId" />
+      </Principal>
+      <Dependent Role="userRoleMapping">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userMaster_vendorMaster">
+    <End Role="vendorMaster" Type="Self.vendorMaster" Multiplicity="0..1" />
+    <End Role="userMaster" Type="Self.userMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendorMaster">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="userMaster">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userRoleMapping_userMaster">
+    <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
+    <End Role="userRoleMapping" Type="Self.userRoleMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userMaster">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="userRoleMapping">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectTrackerV2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="approverResourceMappings" EntityType="Self.approverResourceMapping" />
+    <EntitySet Name="expDelDates" EntityType="Self.expDelDate" />
+    <EntitySet Name="projectMasters" EntityType="Self.projectMaster" />
+    <EntitySet Name="projectRemarks" EntityType="Self.projectRemark" />
+    <EntitySet Name="roleMasters" EntityType="Self.roleMaster" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
+    <EntitySet Name="userMasters" EntityType="Self.userMaster" />
+    <EntitySet Name="userRoleMappings" EntityType="Self.userRoleMapping" />
+    <EntitySet Name="vendorMasters" EntityType="Self.vendorMaster" />
+    <AssociationSet Name="FK_approverResourceMapping_userMaster" Association="Self.FK_approverResourceMapping_userMaster">
+      <End Role="userMaster" EntitySet="userMasters" />
+      <End Role="approverResourceMapping" EntitySet="approverResourceMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_approverResourceMapping_userMaster1" Association="Self.FK_approverResourceMapping_userMaster1">
+      <End Role="userMaster" EntitySet="userMasters" />
+      <End Role="approverResourceMapping" EntitySet="approverResourceMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_expDelDate_projectMaster" Association="Self.FK_expDelDate_projectMaster">
+      <End Role="projectMaster" EntitySet="projectMasters" />
+      <End Role="expDelDate" EntitySet="expDelDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRemarks_projectMaster" Association="Self.FK_projectRemarks_projectMaster">
+      <End Role="projectMaster" EntitySet="projectMasters" />
+      <End Role="projectRemarks" EntitySet="projectRemarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeSheet_projectMaster" Association="Self.FK_TimeSheet_projectMaster">
+      <End Role="projectMaster" EntitySet="projectMasters" />
+      <End Role="TimeSheet" EntitySet="TimeSheets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userRoleMapping_roleMaster" Association="Self.FK_userRoleMapping_roleMaster">
+      <End Role="roleMaster" EntitySet="roleMasters" />
+      <End Role="userRoleMapping" EntitySet="userRoleMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userMaster_vendorMaster" Association="Self.FK_userMaster_vendorMaster">
+      <End Role="vendorMaster" EntitySet="vendorMasters" />
+      <End Role="userMaster" EntitySet="userMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userRoleMapping_userMaster" Association="Self.FK_userRoleMapping_userMaster">
+      <End Role="userMaster" EntitySet="userMasters" />
+      <End Role="userRoleMapping" EntitySet="userRoleMappings" />
+    </AssociationSet>
+    <EntitySet Name="projectStatus" EntityType="ProjectTrackerV2Model.projectStatu" />
+    <AssociationSet Name="FK_approverResourceMapping_approverResourceMapping" Association="ProjectTrackerV2Model.FK_approverResourceMapping_approverResourceMapping">
+      <End Role="approverResourceMapping" EntitySet="approverResourceMappings" />
+      <End Role="approverResourceMapping1" EntitySet="approverResourceMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_approverResourceMapping_userMaster2" Association="ProjectTrackerV2Model.FK_approverResourceMapping_userMaster2">
+      <End Role="userMaster" EntitySet="userMasters" />
+      <End Role="approverResourceMapping" EntitySet="approverResourceMappings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="projectStatu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="projectStatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createdTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="modifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_approverResourceMapping_approverResourceMapping">
+    <End Type="ProjectTrackerV2Model.approverResourceMapping" Role="approverResourceMapping" Multiplicity="1" />
+    <End Type="ProjectTrackerV2Model.approverResourceMapping" Role="approverResourceMapping1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="approverResourceMapping">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="approverResourceMapping1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_approverResourceMapping_userMaster2">
+    <End Type="ProjectTrackerV2Model.userMaster" Role="userMaster" Multiplicity="0..1" />
+    <End Type="ProjectTrackerV2Model.approverResourceMapping" Role="approverResourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userMaster">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="approverResourceMapping">
+        <PropertyRef Name="approverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

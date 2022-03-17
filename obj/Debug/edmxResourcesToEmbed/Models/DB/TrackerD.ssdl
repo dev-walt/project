@@ -90,16 +90,6 @@
     <Property Name="modifiedTimeStamp" Type="datetime" />
     <Property Name="isActive" Type="bit" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="TimeSheet">
     <Key>
       <PropertyRef Name="TimeSheetId" />
@@ -290,7 +280,6 @@
     <EntitySet Name="projectRemarks" EntityType="Self.projectRemarks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="projectStatus" EntityType="Self.projectStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="roleMaster" EntityType="Self.roleMaster" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TimeSheet" EntityType="Self.TimeSheet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userMaster" EntityType="Self.userMaster" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userRoleMapping" EntityType="Self.userRoleMapping" Schema="dbo" store:Type="Tables" />

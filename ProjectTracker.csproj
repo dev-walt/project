@@ -61,6 +61,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
     </Reference>
@@ -189,6 +192,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Gridmvc.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -271,7 +275,11 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Grid.mvc.readme" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -340,9 +348,6 @@
       <DependentUpon>TrackerD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\roleMaster.cs">
-      <DependentUpon>TrackerD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\sysdiagram.cs">
       <DependentUpon>TrackerD.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\TimeSheet.cs">
@@ -424,6 +429,8 @@
     <Content Include="Views\UserTimeSheet\Add.cshtml" />
     <Content Include="Views\TimeSheet\view.cshtml" />
     <Content Include="Views\UserTimeSheet\View.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

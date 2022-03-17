@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="ProjectTrackerV2Model.projectMaster" Width="1.5" PointX="5.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectTrackerV2Model.projectRemark" Width="1.5" PointX="8" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectTrackerV2Model.roleMaster" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjectTrackerV2Model.sysdiagram" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectTrackerV2Model.TimeSheet" Width="1.5" PointX="8" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectTrackerV2Model.userMaster" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectTrackerV2Model.userRoleMapping" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />

@@ -62,8 +62,6 @@ namespace ProjectTracker.Controllers
         public ActionResult AddProject(ProjectViewModelDetail model)
         {
 
-
-
             using (var context = new Models.DB.ProjectTrackerV2Entities())
             {
                 ProjectViewModelDetail vm = new ProjectViewModelDetail();
@@ -132,7 +130,7 @@ namespace ProjectTracker.Controllers
 
 
 
-            return RedirectToAction("Add");
+            return RedirectToAction("AddProject");
         }
 
 

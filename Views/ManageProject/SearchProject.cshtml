@@ -1,111 +1,139 @@
 ﻿@model IEnumerable<ProjectTracker.Models.DB.projectMaster>
-
+@using GridMvc.Html
 @{
-    ViewBag.Title = "AddProject";
+    ViewBag.Title = "SearchProject";
     Layout = "~/Views/Shared/Admin_Layout.cshtml";
 }
+@using GridMvc.Html
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.projectId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CRNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.projectName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.projectDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FPR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.team)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.expectedDelDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.remarks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdTimeStamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedTimeStamp)
-        </th>
-        <th></th>
-    </tr>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+@*<script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>*@
+@*<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>*@
+<script src="~/Scripts/gridmvc.js"></script>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/gridmvc.min.js"></script>
 
-    @foreach (var item in Model)
-    {
+<div class="code-cut">
+    @Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.projectName).Titled("Project Name").Filterable(true);
+    columns.Add(c => c.CRNumber).Titled("CRNumber").Filterable(true);
+    columns.Add(c => c.projectDescription).Titled("Description").Filterable(true);
+    columns.Add(c => c.remarks).Titled("Remarks").Filterable(true);
+    columns.Add(c => c.status).Titled("Status").Filterable(true);
+    columns.Add(c => c.isActive).Titled("Active").Filterable(true);
+    columns.Add(c => c.FPR).Titled("FPR").Filterable(true);
+    columns.Add(c => c.team).Titled("Team").Filterable(true);
+    columns.Add(c => c.expectedDelDate).Titled("Expected Delivery Date").Filterable(true);
+
+    columns.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.projectId }));
+
+}).WithPaging(4).Sortable(true)
+</div>
+
+@*<table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.projectId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CRNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.projectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.projectDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FPR)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.team)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.expectedDelDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.remarks)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createdBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createdTimeStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modifiedTimeStamp)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.projectId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CRNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.expectedDelDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdTimeStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedTimeStamp)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CRNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.projectDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FPR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.expectedDelDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdTimeStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedTimeStamp)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>*@

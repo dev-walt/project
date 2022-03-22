@@ -1,6 +1,7 @@
 ﻿using ProjectTracker.Interfaces;
 using ProjectTracker.Models.DB;
 using ProjectTracker.Models.EntityManager;
+using ProjectTracker.Models.ViewModel;
 using ProjectTracker.Sessions;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ProjectTracker.Controllers
     [UserSession]
     public class UserTimeSheetController : Controller
     {
+        
         IProject _IProject;
         IUserTimeSheet _ITimeSheet;
         IUsers _IUsers;
@@ -29,13 +31,52 @@ namespace ProjectTracker.Controllers
             // List<SelectListItem> projectlist = new List<SelectListItem>();
             // var projectlist= _IProject.GetListofProjects();
             ViewBag.projectList = new SelectList(_IProject.GetListofProjects().ToList(), "projectId", "projectName");
+            
             return View();
         }
+        /*
+                [HttpPost]
+                [ValidateAntiForgeryToken]
+                public ActionResult Add(TimeSheet timesheetmodel)
+                {
+                    try
+                    {
+                        if (timesheetmodel == null)
+                        {
+                            ModelState.AddModelError("", "Values Posted Are Not Accurate");
+                            return View();
+                        }
+                        ViewBag.projectId = ListofProjects();
+
+                        //imeSheet timesheetmodel = new TimeSheet();
+                        timesheetmodel.TimeSheetId = "TS0022";
+                        timesheetmodel.resourceId = Convert.ToString(Session["UserID"]);
+                        timesheetmodel.submittedOn = DateTime.Now;
+                        timesheetmodel.fromTime = timesheetmodel.fromTime;
+                        timesheetmodel.toTime = timesheetmodel.toTime;
+                        var totalhour = timesheetmodel.toTime - timesheetmodel.fromTime;
+                        //timesheetmodel.hours = Convert.ToDecimal(totalhour.TotalHours);
+                        timesheetmodel.status = "Submitted";
+                        string TimeSheetMasterID = _ITimeSheet.AddTimeSheetMaster(timesheetmodel);
+
+                        
+
+                        TempData["TimeCardMessage"] = "Data Saved Successfully";
+
+                        return RedirectToAction("Add", "UserTimeSheet");
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }*/
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(TimeSheet timesheetmodel)
+        public ActionResult Add(TimeSheet timesheetmodel, string Dropdown)
         {
+            ProjectTrackerV2Entities db = new ProjectTrackerV2Entities();
+            
             try
             {
                 if (timesheetmodel == null)
@@ -43,10 +84,15 @@ namespace ProjectTracker.Controllers
                     ModelState.AddModelError("", "Values Posted Are Not Accurate");
                     return View();
                 }
-                ViewBag.projectId=ListofProjects();
+                ViewBag.projectId = ListofProjects();
 
                 //imeSheet timesheetmodel = new TimeSheet();
-                timesheetmodel.TimeSheetId = "TS0021";
+                timesheetmodel.projectName = Dropdown;
+                var pname= timesheetmodel.projectName;
+                var record = db.projectMasters.Where(x => x.projectName == pname).FirstOrDefault();
+
+                timesheetmodel.projectId = record.projectId; //need to work on this
+                timesheetmodel.TimeSheetId = "TS0025";
                 timesheetmodel.resourceId = Convert.ToString(Session["UserID"]);
                 timesheetmodel.submittedOn = DateTime.Now;
                 timesheetmodel.fromTime = timesheetmodel.fromTime;
@@ -55,15 +101,6 @@ namespace ProjectTracker.Controllers
                 //timesheetmodel.hours = Convert.ToDecimal(totalhour.TotalHours);
                 timesheetmodel.status = "Submitted";
                 string TimeSheetMasterID = _ITimeSheet.AddTimeSheetMaster(timesheetmodel);
-
-                /*var count = ProjectSelectCount(timesheetmodel);*/
-
-                /*if (TimeSheetMasterID > 0)
-                {
-                    Save(timesheetmodel, TimeSheetMasterID);
-                    SaveDescription(timesheetmodel, TimeSheetMasterID);
-                    _ITimeSheet.InsertTimeSheetAuditLog(InsertTimeSheetAudit(TimeSheetMasterID, 1));
-                }*/
 
                 TempData["TimeCardMessage"] = "Data Saved Successfully";
 
@@ -75,7 +112,13 @@ namespace ProjectTracker.Controllers
             }
         }
 
+        public ActionResult AutoPopulate()
+        {
+            ProjectTrackerV2Entities db = new ProjectTrackerV2Entities();
 
+            var data = from als in db.projectMasters select new { als.projectName, als.CRNumber};
+            return Json(data.ToList(), JsonRequestBehavior.AllowGet);
+        }
         public ActionResult view()
         {
             using (var context = new ProjectTrackerV2Entities())

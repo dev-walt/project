@@ -30,7 +30,6 @@ namespace ProjectTracker.Models.DB
         public virtual DbSet<projectMaster> projectMasters { get; set; }
         public virtual DbSet<projectRemark> projectRemarks { get; set; }
         public virtual DbSet<roleMaster> roleMasters { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TimeSheet> TimeSheets { get; set; }
         public virtual DbSet<userMaster> userMasters { get; set; }
         public virtual DbSet<userRoleMapping> userRoleMappings { get; set; }

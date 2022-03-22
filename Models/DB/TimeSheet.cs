@@ -9,9 +9,11 @@
 
 namespace ProjectTracker.Models.DB
 {
+    using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TimeSheet
     {
         public long id { get; set; }
@@ -20,6 +22,10 @@ namespace ProjectTracker.Models.DB
         public string projectName { get; set; }
         public string description { get; set; }
         public Nullable<System.DateTime> reportDate { get; set; }
+
+        //[BindProperty, DataType(DataType.Time)]
+        //public DateTime Time { get; set; }
+
         public Nullable<System.TimeSpan> fromTime { get; set; }
         public Nullable<System.TimeSpan> toTime { get; set; }
         public Nullable<decimal> hours { get; set; }

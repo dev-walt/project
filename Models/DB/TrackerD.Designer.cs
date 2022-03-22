@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\.net\projectTracker\Models\DB\TrackerD.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\SaumitraShankar.Sriv\source\repos\project\Models\DB\TrackerD.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

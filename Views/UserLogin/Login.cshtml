@@ -6,6 +6,17 @@
 {
 @Html.AntiForgeryToken()
 
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        };
+    </script>
+
 <div class="login-panel">
     @if (ViewBag.errormessage != null)
     {
@@ -42,6 +53,7 @@
                 <div class="col-md-12 col-xs-12">
                     @Html.LabelFor(model => model.password)
                     @Html.PasswordFor(model => model.password, new { @class = "form-control", @maxlength = 30 })
+                    <input type="checkbox" id="showPass" onclick="showPassword()"/>Show Password
                     @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                 </div>
             </div>

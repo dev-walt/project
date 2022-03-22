@@ -14,18 +14,20 @@
 <body style=" background-color:aliceblue">
 
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color:palegoldenrod;">
-        <img src="~/Content/Images/dlplLogo.svg" style="height:50px;width:200px;margin-top:0px;margin-bottom:0">
-        <div>
+        <a href="/User/Dashboard">
+            <img src="~/Content/Images/dlplLogo.svg" style="height:50px;width:200px;margin-top:0px;margin-bottom:0">
+        </a>
+            <div>
 
-            <img src="~/Content/Images/profilepic.svg" style="height: 50px; width: 100px; margin-top: 0px; float: right; margin-bottom:0">
-
-
-            <a href="/UserLogin/Logout"><h6 style=" margin-top:15px;float:right">Hi @Session["Username"] !</h6></a>
-
+                <img src="~/Content/Images/profilepic.svg" style="height: 50px; width: 100px; margin-top: 0px; float: right; margin-bottom:0">
 
 
-        </div>
-    </nav>
+                <a href="/UserLogin/Logout"><h6 style=" margin-top:15px;float:right">Hi @Session["Username"] !</h6></a>
+
+
+
+            </div>
+</nav>
 
 
 
@@ -41,18 +43,18 @@
                     <a class="nav-link" href="#">View Project</a>
                 </li>
 
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" href="#">Search Project</a>
-                </li>
+                </li>*@
                 <li class="nav-item">
                     <a class="nav-link" href="#">View User TimeSheet</a>
                 </li>
-                <li class="nav-item">
+                @*<li class="nav-item">
                     <a class="nav-link" href="#">Allow User TimeSheet</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Approve User TimeSheet</a>
-                </li>
+                </li>*@
 
             </ul>
         </div>

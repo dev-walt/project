@@ -109,7 +109,7 @@ namespace ProjectTracker.Controllers
                     }
                     else
                     {
-                        ViewBag.errormessage = "Entered Invalid Username and Password";
+                        ViewBag.errormessage = "Invalid Username and Password";
                         return View(loginViewModel);
                     }
                 }

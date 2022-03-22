@@ -4,166 +4,156 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ProjectTrackerV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="ProjectTrackerV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="approverResourceMapping">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="resourceId" Type="nvarchar" MaxLength="50" />
-          <Property Name="resourceName" Type="varchar" MaxLength="50" />
-          <Property Name="vendorName" Type="varchar" MaxLength="50" />
-          <Property Name="approverId" Type="nvarchar" MaxLength="50" />
-          <Property Name="approvarName" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="resourceId" MaxLength="50" Type="nvarchar" />
+          <Property Name="resourceName" MaxLength="50" Type="varchar" />
+          <Property Name="vendorName" MaxLength="50" Type="varchar" />
+          <Property Name="approverId" MaxLength="50" Type="nvarchar" />
+          <Property Name="approvarName" MaxLength="50" Type="varchar" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
-          <Property Name="modifiedTimeStamp" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
+          <Property Name="modifiedTimeStamp" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="expDelDate">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="projectId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="projectId" Nullable="false" MaxLength="50" Type="varchar" />
           <Property Name="actualDate" Type="date" />
           <Property Name="expectedDate" Type="date" />
           <Property Name="lastExpectedDate" Type="date" />
           <Property Name="reason" Type="varchar(max)" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="projectMaster">
           <Key>
             <PropertyRef Name="projectId" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="projectId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CRNumber" Type="varchar" MaxLength="50" />
-          <Property Name="projectName" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="projectId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="CRNumber" MaxLength="50" Type="varchar" />
+          <Property Name="projectName" MaxLength="50" Type="varchar" />
           <Property Name="projectDescription" Type="varchar(max)" />
-          <Property Name="FPR" Type="varchar" MaxLength="50" />
+          <Property Name="FPR" MaxLength="50" Type="varchar" />
           <Property Name="team" Type="varchar(max)" />
           <Property Name="expectedDelDate" Type="date" />
           <Property Name="remarks" Type="varchar(max)" />
-          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="status" MaxLength="50" Type="varchar" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="projectRemarks">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="projectId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="projectName" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="projectId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="projectName" MaxLength="50" Type="varchar" />
           <Property Name="remark" Type="varchar(max)" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="projectStatus">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="projectStatusId" Type="varchar" MaxLength="50" />
-          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" Type="int" />
+          <Property Name="projectStatusId" MaxLength="50" Type="varchar" />
+          <Property Name="status" MaxLength="50" Type="varchar" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="roleMaster">
           <Key>
             <PropertyRef Name="roleId" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="roleId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="roleName" Type="varchar" MaxLength="50" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="roleId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="roleName" MaxLength="50" Type="varchar" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
           <Property Name="isActive" Type="bit" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TimeSheet">
           <Key>
             <PropertyRef Name="TimeSheetId" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TimeSheetId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="taskType" Type="varchar" MaxLength="50" />
-          <Property Name="projectId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="projectName" Type="varchar" MaxLength="50" />
-          <Property Name="description" Type="varchar" MaxLength="250" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="TimeSheetId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="taskType" MaxLength="50" Type="varchar" />
+          <Property Name="projectId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="projectName" MaxLength="50" Type="varchar" />
+          <Property Name="description" MaxLength="250" Type="varchar" />
           <Property Name="reportDate" Type="date" />
-          <Property Name="fromTime" Type="time" Precision="7" />
-          <Property Name="toTime" Type="time" Precision="7" />
-          <Property Name="hours" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="remarks" Type="varchar" MaxLength="5000" />
-          <Property Name="projectStatus" Type="varchar" MaxLength="50" />
-          <Property Name="status" Type="varchar" MaxLength="50" />
-          <Property Name="resourceId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="resourceName" Type="varchar" MaxLength="50" />
+          <Property Name="fromTime" Precision="7" Type="time" />
+          <Property Name="toTime" Precision="7" Type="time" />
+          <Property Name="hours" Precision="18" Scale="0" Type="decimal" />
+          <Property Name="remarks" MaxLength="5000" Type="varchar" />
+          <Property Name="projectStatus" MaxLength="50" Type="varchar" />
+          <Property Name="status" MaxLength="50" Type="varchar" />
+          <Property Name="resourceId" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="resourceName" MaxLength="50" Type="varchar" />
           <Property Name="submittedOn" Type="datetime" />
           <Property Name="approvedOn" Type="datetime" />
-          <Property Name="approvedBy" Type="varchar" MaxLength="50" />
-          <Property Name="approvalRemark" Type="varchar" MaxLength="150" />
+          <Property Name="approvedBy" MaxLength="50" Type="varchar" />
+          <Property Name="approvalRemark" MaxLength="150" Type="varchar" />
           <Property Name="isApproved" Type="bit" />
-          <Property Name="category" Type="varchar" MaxLength="50" />
-          <Property Name="subCategory" Type="varchar" MaxLength="50" />
-          <Property Name="CRNumber" Type="varchar" MaxLength="50" />
-          <Property Name="supportTicketId" Type="varchar" MaxLength="50" />
-          <Property Name="BusinessUserName" Type="varchar" MaxLength="50" />
+          <Property Name="category" MaxLength="50" Type="varchar" />
+          <Property Name="subCategory" MaxLength="50" Type="varchar" />
+          <Property Name="CRNumber" MaxLength="50" Type="varchar" />
+          <Property Name="supportTicketId" MaxLength="50" Type="varchar" />
+          <Property Name="BusinessUserName" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="userMaster">
           <Key>
             <PropertyRef Name="userId" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="firstName" Type="varchar" MaxLength="50" />
-          <Property Name="lastName" Type="varchar" MaxLength="50" />
-          <Property Name="emailId" Type="varchar" MaxLength="50" />
-          <Property Name="vendorId" Type="nvarchar" MaxLength="50" />
-          <Property Name="vendorName" Type="nvarchar" MaxLength="50" />
-          <Property Name="userName" Type="nvarchar" MaxLength="50" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="userId" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="firstName" MaxLength="50" Type="varchar" />
+          <Property Name="lastName" MaxLength="50" Type="varchar" />
+          <Property Name="emailId" MaxLength="50" Type="varchar" />
+          <Property Name="vendorId" MaxLength="50" Type="nvarchar" />
+          <Property Name="vendorName" MaxLength="50" Type="nvarchar" />
+          <Property Name="userName" MaxLength="50" Type="nvarchar" />
+          <Property Name="password" MaxLength="50" Type="varchar" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="userRoleMapping">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userId" Type="nvarchar" MaxLength="50" />
-          <Property Name="roleId" Type="varchar" MaxLength="50" />
-          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="userId" MaxLength="50" Type="nvarchar" />
+          <Property Name="roleId" MaxLength="50" Type="varchar" />
+          <Property Name="createdBy" MaxLength="50" Type="varchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="varchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
           <Property Name="isActive" Type="bit" />
         </EntityType>
@@ -171,18 +161,18 @@
           <Key>
             <PropertyRef Name="vendorId" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vendorId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="vendorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="vendorId" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="vendorName" Nullable="false" MaxLength="50" Type="nvarchar" />
           <Property Name="isActive" Type="bit" />
-          <Property Name="createdBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdBy" MaxLength="50" Type="nvarchar" />
           <Property Name="createdTimeStamp" Type="datetime" />
-          <Property Name="modifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="modifiedBy" MaxLength="50" Type="nvarchar" />
           <Property Name="modifiedTimeStamp" Type="datetime" />
         </EntityType>
         <Association Name="FK_approverResourceMapping_approverResourceMapping">
-          <End Role="approverResourceMapping" Type="Self.approverResourceMapping" Multiplicity="1" />
-          <End Role="approverResourceMapping1" Type="Self.approverResourceMapping" Multiplicity="0..1" />
+          <End Type="Self.approverResourceMapping" Multiplicity="1" Role="approverResourceMapping" />
+          <End Type="Self.approverResourceMapping" Multiplicity="0..1" Role="approverResourceMapping1" />
           <ReferentialConstraint>
             <Principal Role="approverResourceMapping">
               <PropertyRef Name="id" />
@@ -193,8 +183,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_approverResourceMapping_userMaster">
-          <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
-          <End Role="approverResourceMapping" Type="Self.approverResourceMapping" Multiplicity="*" />
+          <End Type="Self.userMaster" Multiplicity="0..1" Role="userMaster" />
+          <End Type="Self.approverResourceMapping" Multiplicity="*" Role="approverResourceMapping" />
           <ReferentialConstraint>
             <Principal Role="userMaster">
               <PropertyRef Name="userId" />
@@ -205,8 +195,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_approverResourceMapping_userMaster1">
-          <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
-          <End Role="approverResourceMapping" Type="Self.approverResourceMapping" Multiplicity="*" />
+          <End Type="Self.userMaster" Multiplicity="0..1" Role="userMaster" />
+          <End Type="Self.approverResourceMapping" Multiplicity="*" Role="approverResourceMapping" />
           <ReferentialConstraint>
             <Principal Role="userMaster">
               <PropertyRef Name="userId" />
@@ -217,8 +207,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_expDelDate_projectMaster">
-          <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
-          <End Role="expDelDate" Type="Self.expDelDate" Multiplicity="*" />
+          <End Type="Self.projectMaster" Multiplicity="1" Role="projectMaster" />
+          <End Type="Self.expDelDate" Multiplicity="*" Role="expDelDate" />
           <ReferentialConstraint>
             <Principal Role="projectMaster">
               <PropertyRef Name="projectId" />
@@ -229,8 +219,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_projectRemarks_projectMaster">
-          <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
-          <End Role="projectRemarks" Type="Self.projectRemarks" Multiplicity="*" />
+          <End Type="Self.projectMaster" Multiplicity="1" Role="projectMaster" />
+          <End Type="Self.projectRemarks" Multiplicity="*" Role="projectRemarks" />
           <ReferentialConstraint>
             <Principal Role="projectMaster">
               <PropertyRef Name="projectId" />
@@ -241,8 +231,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TimeSheet_projectMaster">
-          <End Role="projectMaster" Type="Self.projectMaster" Multiplicity="1" />
-          <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
+          <End Type="Self.projectMaster" Multiplicity="1" Role="projectMaster" />
+          <End Type="Self.TimeSheet" Multiplicity="*" Role="TimeSheet" />
           <ReferentialConstraint>
             <Principal Role="projectMaster">
               <PropertyRef Name="projectId" />
@@ -253,8 +243,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_userMaster_vendorMaster">
-          <End Role="vendorMaster" Type="Self.vendorMaster" Multiplicity="0..1" />
-          <End Role="userMaster" Type="Self.userMaster" Multiplicity="*" />
+          <End Type="Self.vendorMaster" Multiplicity="0..1" Role="vendorMaster" />
+          <End Type="Self.userMaster" Multiplicity="*" Role="userMaster" />
           <ReferentialConstraint>
             <Principal Role="vendorMaster">
               <PropertyRef Name="vendorId" />
@@ -265,8 +255,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_userRoleMapping_roleMaster">
-          <End Role="roleMaster" Type="Self.roleMaster" Multiplicity="0..1" />
-          <End Role="userRoleMapping" Type="Self.userRoleMapping" Multiplicity="*" />
+          <End Type="Self.roleMaster" Multiplicity="0..1" Role="roleMaster" />
+          <End Type="Self.userRoleMapping" Multiplicity="*" Role="userRoleMapping" />
           <ReferentialConstraint>
             <Principal Role="roleMaster">
               <PropertyRef Name="roleId" />
@@ -277,8 +267,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_userRoleMapping_userMaster">
-          <End Role="userMaster" Type="Self.userMaster" Multiplicity="0..1" />
-          <End Role="userRoleMapping" Type="Self.userRoleMapping" Multiplicity="*" />
+          <End Type="Self.userMaster" Multiplicity="0..1" Role="userMaster" />
+          <End Type="Self.userRoleMapping" Multiplicity="*" Role="userRoleMapping" />
           <ReferentialConstraint>
             <Principal Role="userMaster">
               <PropertyRef Name="userId" />
@@ -295,46 +285,45 @@
           <EntitySet Name="projectRemarks" EntityType="Self.projectRemarks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="projectStatus" EntityType="Self.projectStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="roleMaster" EntityType="Self.roleMaster" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TimeSheet" EntityType="Self.TimeSheet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userMaster" EntityType="Self.userMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userRoleMapping" EntityType="Self.userRoleMapping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vendorMaster" EntityType="Self.vendorMaster" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_approverResourceMapping_approverResourceMapping" Association="Self.FK_approverResourceMapping_approverResourceMapping">
-            <End Role="approverResourceMapping" EntitySet="approverResourceMapping" />
-            <End Role="approverResourceMapping1" EntitySet="approverResourceMapping" />
+            <End EntitySet="approverResourceMapping" Role="approverResourceMapping" />
+            <End EntitySet="approverResourceMapping" Role="approverResourceMapping1" />
           </AssociationSet>
           <AssociationSet Name="FK_approverResourceMapping_userMaster" Association="Self.FK_approverResourceMapping_userMaster">
-            <End Role="userMaster" EntitySet="userMaster" />
-            <End Role="approverResourceMapping" EntitySet="approverResourceMapping" />
+            <End EntitySet="userMaster" Role="userMaster" />
+            <End EntitySet="approverResourceMapping" Role="approverResourceMapping" />
           </AssociationSet>
           <AssociationSet Name="FK_approverResourceMapping_userMaster1" Association="Self.FK_approverResourceMapping_userMaster1">
-            <End Role="userMaster" EntitySet="userMaster" />
-            <End Role="approverResourceMapping" EntitySet="approverResourceMapping" />
+            <End EntitySet="userMaster" Role="userMaster" />
+            <End EntitySet="approverResourceMapping" Role="approverResourceMapping" />
           </AssociationSet>
           <AssociationSet Name="FK_expDelDate_projectMaster" Association="Self.FK_expDelDate_projectMaster">
-            <End Role="projectMaster" EntitySet="projectMaster" />
-            <End Role="expDelDate" EntitySet="expDelDate" />
+            <End EntitySet="projectMaster" Role="projectMaster" />
+            <End EntitySet="expDelDate" Role="expDelDate" />
           </AssociationSet>
           <AssociationSet Name="FK_projectRemarks_projectMaster" Association="Self.FK_projectRemarks_projectMaster">
-            <End Role="projectMaster" EntitySet="projectMaster" />
-            <End Role="projectRemarks" EntitySet="projectRemarks" />
+            <End EntitySet="projectMaster" Role="projectMaster" />
+            <End EntitySet="projectRemarks" Role="projectRemarks" />
           </AssociationSet>
           <AssociationSet Name="FK_TimeSheet_projectMaster" Association="Self.FK_TimeSheet_projectMaster">
-            <End Role="projectMaster" EntitySet="projectMaster" />
-            <End Role="TimeSheet" EntitySet="TimeSheet" />
+            <End EntitySet="projectMaster" Role="projectMaster" />
+            <End EntitySet="TimeSheet" Role="TimeSheet" />
           </AssociationSet>
           <AssociationSet Name="FK_userMaster_vendorMaster" Association="Self.FK_userMaster_vendorMaster">
-            <End Role="vendorMaster" EntitySet="vendorMaster" />
-            <End Role="userMaster" EntitySet="userMaster" />
+            <End EntitySet="vendorMaster" Role="vendorMaster" />
+            <End EntitySet="userMaster" Role="userMaster" />
           </AssociationSet>
           <AssociationSet Name="FK_userRoleMapping_roleMaster" Association="Self.FK_userRoleMapping_roleMaster">
-            <End Role="roleMaster" EntitySet="roleMaster" />
-            <End Role="userRoleMapping" EntitySet="userRoleMapping" />
+            <End EntitySet="roleMaster" Role="roleMaster" />
+            <End EntitySet="userRoleMapping" Role="userRoleMapping" />
           </AssociationSet>
           <AssociationSet Name="FK_userRoleMapping_userMaster" Association="Self.FK_userRoleMapping_userMaster">
-            <End Role="userMaster" EntitySet="userMaster" />
-            <End Role="userRoleMapping" EntitySet="userRoleMapping" />
+            <End EntitySet="userMaster" Role="userMaster" />
+            <End EntitySet="userRoleMapping" Role="userRoleMapping" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -428,16 +417,6 @@
           <Property Name="modifiedTimeStamp" Type="DateTime" Precision="3" />
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="userRoleMappings" Relationship="Self.FK_userRoleMapping_roleMaster" FromRole="roleMaster" ToRole="userRoleMapping" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TimeSheet">
           <Key>
@@ -625,7 +604,6 @@
           <EntitySet Name="projectMasters" EntityType="Self.projectMaster" />
           <EntitySet Name="projectRemarks" EntityType="Self.projectRemark" />
           <EntitySet Name="roleMasters" EntityType="Self.roleMaster" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
           <EntitySet Name="userMasters" EntityType="Self.userMaster" />
           <EntitySet Name="userRoleMappings" EntityType="Self.userRoleMapping" />
@@ -794,17 +772,6 @@
                 <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
                 <ScalarProperty Name="modifiedTimeStamp" ColumnName="modifiedTimeStamp" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ProjectTrackerV2Model.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

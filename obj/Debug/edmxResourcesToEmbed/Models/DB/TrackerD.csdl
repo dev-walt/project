@@ -88,16 +88,6 @@
     <Property Name="isActive" Type="Boolean" />
     <NavigationProperty Name="userRoleMappings" Relationship="Self.FK_userRoleMapping_roleMaster" FromRole="roleMaster" ToRole="userRoleMapping" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TimeSheet">
     <Key>
       <PropertyRef Name="TimeSheetId" />
@@ -284,7 +274,6 @@
     <EntitySet Name="projectMasters" EntityType="Self.projectMaster" />
     <EntitySet Name="projectRemarks" EntityType="Self.projectRemark" />
     <EntitySet Name="roleMasters" EntityType="Self.roleMaster" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
     <EntitySet Name="userMasters" EntityType="Self.userMaster" />
     <EntitySet Name="userRoleMappings" EntityType="Self.userRoleMapping" />
